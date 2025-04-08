@@ -1,0 +1,180 @@
+/* ==================== Estilos Página Login ==================== */
+
+.login-page-main {
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el login-container si la página es más alta */
+    /* Ajusta min-height si es necesario, considera la altura dinámica de header/footer */
+    /* min-height: calc(100vh - 150px); */
+    margin: 40px 0; /* Añadir margen vertical general para separar de header/footer */
+}
+
+.login-container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    /* margin: 40px auto; quitado para controlar con .login-page-main */
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 0; /* Sin padding en el contenedor principal */
+    gap: 0;     /* Sin gap entre columnas */
+}
+
+.login-image {
+    flex: 1 1 50%;
+    /* === ¡RUTA CORRECTA A TU IMAGEN! === */
+    background-image: url('../images/login.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0; /* Sin padding */
+    margin: 0;  /* Sin margen */
+    font-size: 0; /* Evitar problemas con espacios */
+}
+.register-image {
+    /* === ¡RUTA CORRECTA A TU IMAGEN DE REGISTRO! === */
+    background-image: url('../images/registro.png'); /* O el nombre de tu imagen */
+}
+
+.login-form-container {
+    flex: 1 1 50%;
+    padding: 50px 40px; /* Padding interno del formulario */
+    box-sizing: border-box;
+}
+
+.login-form-container h2 {
+    font-size: 2rem; /* Tamaño título login */
+    /* color: var(--title-color); Heredado */
+    margin-top: 0;
+    margin-bottom: 35px; /* Más espacio */
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+/* Iconos dentro de los inputs */
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 0.9rem;
+    z-index: 3; /* Por si acaso */
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"]  {
+    width: 100%;
+    padding: 12px 15px 12px 40px; /* Padding: top/bottom, right, left (para icono) */
+    border: 1px solid var(--border-color); /* Usa variable definida en :root */
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Para que z-index funcione si es necesario */
+    z-index: 2; /* Detrás del icono? No, debe estar por defecto */
+}
+
+/* Estilo al enfocar el input */
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    outline: none;
+    border-color: var(--primary-color); /* Usa variable */
+    box-shadow: 0 0 0 3px rgba(124, 170, 152, 0.25); /* Sombra focus más visible */
+}
+
+/* Cambiar color icono al enfocar input */
+.form-group input[type="text"]:focus ~ .input-icon, /* Usar ~ (hermano general) */
+.form-group input[type="password"]:focus ~ .input-icon {
+    color: var(--primary-color);
+}
+
+/* Enlace "Olvidaste contraseña" */
+.forgot-password {
+    display: block;
+    text-align: right;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    color: var(--primary-color);
+}
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Botón de login */
+.btn-login {
+    width: 100%;
+    padding: 14px; /* Ajustar padding */
+    font-size: 1.05rem; /* Ajustar tamaño fuente */
+    margin-top: 15px;
+    /* Hereda estilos de .btn y .btn-primary */
+}
+
+/* Enlace para registrarse */
+.signup-link {
+    text-align: center;
+    margin-top: 35px; /* Más espacio */
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.signup-link a {
+    color:#F9930E;
+    font-weight: 600;
+}
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* ==================== Media Queries (Login) ==================== */
+@media (max-width: 850px) {
+    .login-page-main {
+        /* Eliminar align-items si no se quiere centrar verticalmente en móvil */
+        /* align-items: flex-start; */
+        margin: 20px 0; /* Reducir margen vertical */
+    }
+    .login-container {
+        flex-direction: column;
+        margin-left: auto; /* Centrar el contenedor */
+        margin-right: auto;
+        max-width: 500px;
+        width: 90%; /* Usar porcentaje para que no pegue a bordes */
+    }
+    .login-image {
+        min-height: 250px;
+        flex-basis: auto; /* Importante al cambiar a columna */
+    }
+    .login-form-container {
+        flex-basis: auto; /* Importante al cambiar a columna */
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+     .login-form-container {
+        padding: 30px 20px;
+    }
+     .login-form-container h2 {
+        font-size: 1.8rem;
+     }
+}

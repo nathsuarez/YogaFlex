@@ -1,0 +1,700 @@
+/* ==================== Importar Fuentes de Google ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap');
+
+/* ==================== Variables CSS Globales ==================== */
+:root {
+    /* Colores */
+    --primary-color: #7CAA98;   /* Verde principal (botones, enlaces) */
+    --accent-color: #F9930E;    /* Naranja/Amarillo (botón secundario) */
+    --hero-bg-color: #E8E3DB;   /* Fondo claro para área de texto del hero */
+    --secondary-color: #f8f9fa; /* Gris muy claro para otros fondos */
+    --text-color: #333333;      /* Color de texto principal */
+    --text-light: #ffffff;      /* Texto blanco */
+    --title-color: #2c3e50;     /* Color para títulos (un poco más oscuro) */
+    --border-color: #dddddd;    /* Bordes sutiles */
+    --header-bg: #ffffff;       /* Fondo del header */
+    --footer-bg: #333333;       /* Fondo del footer */
+
+    /* Fuentes */
+    --font-primary: 'Poppins', sans-serif;    /* Fuente para cuerpo */
+    --font-secondary: 'Montserrat', sans-serif; /* Fuente para títulos */
+}
+
+/* ==================== Estilos Generales ==================== */
+body {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #fff; /* Fondo base blanco */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    color: var(--title-color);
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 40px; /* <<-- CAMBIA ESTE VALOR */
+}
+/* Anular margen superior para títulos que estén al inicio de una sección con padding */
+.section-padding > h1:first-child,
+.section-padding > h2:first-child,
+.section-padding > .text-center:first-child h2, /* Si el título está dentro de un div centrado */
+.hero-content > h1:first-child {
+    margin-top: 0;
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #6b9a8a; /* Verde primario oscurecido */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Evita espacios extra debajo de las imágenes */
+}
+
+/* Contenedor para centrar contenido */
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Clases de utilidad */
+.section-padding {
+    padding: 60px 0;
+}
+
+.bg-light {
+    background-color: var(--secondary-color);
+}
+.bg-primary-light {
+    background-color: #e0f2f1; /* Tono muy claro del color primario */
+}
+.text-center {
+    text-align: center;
+}
+
+/* Para párrafos introductorios debajo de títulos */
+.section-intro {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px; /* Limita el ancho para mejor legibilidad */
+    margin-top: -0.5em; /* Reduce espacio con título si es necesario */
+    margin-bottom: 2.5em; /* Espacio antes del siguiente contenido */
+    margin-left: auto; /* Centrar si es text-center */
+    margin-right: auto; /* Centrar si es text-center */
+}
+
+
+/* ==================== Estilos de Botones ==================== */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 5px;
+    text-transform: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón Verde Principal */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background-color: #6b9a8a; /* Verde primario oscurecido */
+    color: var(--text-light);
+}
+
+/* Botón Naranja/Amarillo Secundario */
+.btn-secondary {
+    background-color: var(--accent-color);
+    color: var(--text-light);
+}
+
+.btn-secondary:hover {
+    background-color: #e8870d; /* Naranja oscurecido */
+    color: var(--text-light);
+}
+
+
+/* ==================== Estilos del Encabezado ==================== */
+.main-header {
+    background-color: var(--header-bg);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--title-color); /* Usar color de título para el logo */
+    text-decoration: none;
+}
+
+.main-nav {
+    /* El menú principal se oculta en móvil por defecto (ver media queries) */
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px; /* Espacio entre enlaces */
+}
+
+.main-nav a {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 0;
+    text-decoration: none;
+    position: relative; /* Para el efecto hover */
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Efecto línea inferior al pasar el ratón */
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre botones del header */
+}
+
+/* Botón menú móvil (oculto en escritorio) */
+.mobile-menu-toggle {
+    display: none; /* Se muestra en la media query */
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--title-color);
+    padding: 5px;
+}
+
+
+/* ==================== Estilos de la Sección Hero (Ancho Completo) ==================== */
+.hero {
+    /* display: flex para crear columnas directamente en la sección */
+    display: flex;
+    align-items: stretch; /* Columnas misma altura */
+    /* Quitamos TODO el padding de la sección para que pegue arriba y los lados */
+    padding: 0;
+    /* Quitamos cualquier margen superior */
+    margin-top: 0;
+     /* No necesita width: 100vw; section es block por defecto */
+     /* No necesita border-radius ni overflow aquí si es ancho completo */
+}
+
+.hero-content {
+    flex: 1; /* O la proporción que desees, ej: flex: 0 0 50%; */
+    background-color: var(--hero-bg-color); /* Fondo crema */
+    /* Ajusta el padding para el espacio interno. El padding superior/inferior da altura */
+    padding: 80px 60px 80px 10%; /* Más padding arriba/abajo, y un % a la izquierda para alejar del borde */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box; /* Asegura que el padding esté incluido en el tamaño */
+}
+
+.hero h1 {
+    font-size: 2.8rem; /* Mantener o ajustar tamaño */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0.7em;
+    color: var(--title-color);
+    /* max-width: 600px; /* Limitar ancho si es necesario */
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 1.8em;
+    color: #555;
+    max-width: 500px; /* Limitar ancho del párrafo */
+}
+
+.hero-buttons .btn {
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.hero-image {
+    flex: 1; /* O la proporción que desees, ej: flex: 0 0 50%; */
+    /* No necesita padding */
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ==================== Estilos Sección Features (Tu viaje...) ==================== */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 30px; /* Espacio entre las tarjetas */
+    margin-top: 3em; /* Espacio después del párrafo introductorio */
+}
+
+.feature-item {
+    background-color: #ffffff; /* Fondo blanco para la tarjeta */
+    /* Si prefieres el fondo lavanda pálido de la captura, usa: */
+    /* background-color: #f8f7fa; */
+    padding: 40px 30px;      /* Espacio interno (relleno) */
+    border-radius: 10px;     /* Esquinas redondeadas */
+    text-align: center;      /* Centrar todo el contenido interno */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px); /* Efecto elevar al pasar el ratón */
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para las imágenes de icono */
+.feature-item img.feature-icon {
+    max-width: 55px; /* Ancho máximo del icono (ajústalo) */
+    height: auto;    /* Altura automática para mantener proporción */
+    margin: 0 auto 25px auto; /* Centrar horizontalmente y margen inferior */
+}
+
+.feature-item h3 {
+    font-size: 1.3rem;  /* Tamaño del título H3 dentro de la tarjeta */
+    font-weight: 600;   /* Peso de la fuente */
+    margin-top: 0;      /* Sin margen superior */
+    margin-bottom: 15px;/* Margen inferior antes del párrafo */
+    color: var(--title-color); /* Color definido en :root */
+}
+
+.feature-item p {
+    font-size: 0.95rem; /* Tamaño del texto del párrafo */
+    color: #666;       /* Color gris para el párrafo */
+    line-height: 1.6;   /* Interlineado */
+    margin-bottom: 0;   /* Sin margen extra al final de la tarjeta */
+}
+/* Asegura que la clase para el fondo claro use el color crema */
+.bg-light {
+    background-color: var(--hero-bg-color); /* Fondo crema */
+}
+
+.services h2 {
+    /* Hereda estilos generales, asegúrate que .text-center esté en HTML */
+    margin-bottom: 1.5em;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.service-image {
+    width: 100%;
+    height: 210px; /* Altura fija para imágenes (ajústala si prefieres) */
+    object-fit: cover;
+    display: block;
+}
+
+/* Contenedor para el texto y enlace dentro de la tarjeta */
+.service-content {
+    padding: 25px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* <<-- Asegura alineación izquierda para h3, p */
+    text-align: left;      /* <<-- Asegura alineación izquierda del texto */
+    flex-grow: 1;          /* Ocupa espacio vertical restante */
+}
+
+.service-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--title-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.service-content p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Empuja el enlace hacia abajo */
+}
+
+.service-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: auto; /* Se asegura que esté al final */
+    /* align-self: flex-start; No es necesario aquí si .service-content ya alinea a la izquierda */
+}
+
+.service-link:hover {
+    color: #6b9a8a;
+    text-decoration: underline;
+}
+/* ==================== Estilos Sección Testimonios ==================== */
+
+.testimonials h2 {
+    margin-bottom: 1.5em; /* Espacio después del título */
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en escritorio */
+    gap: 30px; /* Espacio entre tarjetas */
+}
+
+.testimonial-card {
+    background-color: var(--hero-bg-color); /* Fondo crema */
+    padding: 35px; /* Padding interno */
+    border-radius: 10px; /* Esquinas redondeadas */
+    /* box-shadow: 0 4px 10px rgba(0,0,0,0.05); */ /* Sombra opcional muy sutil */
+}
+
+.testimonial-author {
+    font-size: 1.2rem;
+    font-weight: 600; /* Semibold */
+    color: var(--title-color); /* Color oscuro para el nombre */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.testimonial-quote {
+    font-size: 1rem;
+    color: #555; /* Gris oscuro para la cita */
+    line-height: 1.7; /* Interlineado un poco mayor */
+    margin-bottom: 20px;
+    font-style: italic; /* Opcional: cursiva para la cita */
+}
+
+.testimonial-rating {
+    font-size: 1.3rem; /* Tamaño de las estrellas */
+    color: #fabb05; /* Color dorado/amarillo para las estrellas (ajusta si es necesario) */
+    margin-top: auto; /* Intenta empujar al fondo si la tarjeta usa flex (no implementado aquí) */
+}
+
+/* ==================== Estilos Sección CTA Final ==================== */
+
+.cta {
+    position: relative; /* Necesario para posicionar el overlay */
+    background-size: cover; /* Cubre todo el área */
+    background-position: center center; /* Centra la imagen */
+    background-repeat: no-repeat;
+    color: var(--text-light); /* Texto blanco por defecto */
+    padding: 80px 0; /* Más padding vertical para esta sección */
+    overflow: hidden; /* Por si acaso */
+}
+
+/* Overlay oscuro sobre la imagen de fondo */
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 62, 80, 0.7); /* Color oscuro semitransparente (ajusta opacidad) */
+    /* background-color: rgba(0, 0, 0, 0.6); /* Alternativa: negro semitransparente */
+    z-index: 1; /* Detrás del contenido */
+}
+
+/* Contenedor del contenido, debe estar sobre el overlay */
+.cta-content {
+    position: relative; /* Para ponerlo sobre el pseudo-elemento ::before */
+    z-index: 2; /* Asegura que esté por encima del overlay */
+}
+
+.cta h2 {
+    color: var(--text-light); /* Asegura texto blanco */
+    font-size: 2.5rem; /* Tamaño del título CTA (ajusta) */
+    margin-bottom: 0.8em;
+}
+
+.cta p {
+    color: rgba(255, 255, 255, 0.9); /* Blanco ligeramente transparente */
+    font-size: 1.1rem;
+    max-width: 600px; /* Limita ancho del párrafo */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em; /* Espacio antes de los botones */
+}
+
+.cta-buttons {
+    margin-top: 20px; /* Espacio extra si es necesario */
+}
+
+/* ==================== Estilos Footer ==================== */
+
+.main-footer {
+    background-color: #2c3e50; /* Azul oscuro/grisáceo (ajusta si es otro) */
+    /* background-color: var(--footer-bg); */ /* Si definiste la variable */
+    color: rgba(255, 255, 255, 0.8); /* Blanco semi-transparente para texto base */
+    padding: 60px 0 0; /* Padding arriba, 0 abajo porque el copyright lo tendrá */
+    margin-top: 60px; /* Espacio sobre el footer */
+    font-size: 0.95rem; /* Tamaño base para texto del footer */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales por defecto */
+    /* Alternativa: proporciones diferentes */
+    /* grid-template-columns: 2fr 1fr 1.5fr 1fr; */
+    gap: 30px; /* Espacio entre columnas */
+    margin-bottom: 40px; /* Espacio antes de la barra de copyright */
+}
+
+.footer-col h3,
+.footer-col h4 {
+    color: #ffffff; /* Títulos en blanco brillante */
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    font-size: 30px!important; 
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.footer-about p {
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8); /* Mismo color que texto base */
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff; /* Blanco brillante al pasar el ratón */
+    padding-left: 5px; /* Pequeño desplazamiento */
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+/* Estilo opcional para iconos emoji si los usas */
+.footer-contact p span.emoji-icon {
+    margin-right: 8px;
+}
+
+.social-icons a {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.8);
+    /* background-color: rgba(255, 255, 255, 0.1); /* Fondo opcional para iconos */
+    width: 40px;
+    height: 40px;
+    line-height: 40px; /* Centra icono verticalmente si es font */
+    text-align: center;
+    border-radius: 50%; /* Círculo */
+    margin-right: 8px;
+    font-size: 1.1rem; /* Tamaño del icono font */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ffffff;
+    background-color: var(--primary-color); /* Fondo verde al pasar ratón */
+    /* background-color: rgba(255, 255, 255, 0.2); */ /* Alternativa: fondo más claro */
+}
+
+/* Barra de Copyright */
+.footer-copyright {
+    background-color: rgba(0, 0, 0, 0.15); /* Fondo ligeramente diferente o más oscuro */
+    /* border-top: 1px solid rgba(255, 255, 255, 0.1); */ /* O un borde superior */
+    padding: 20px 0;
+    margin-top: 0; /* Ya hay margen en footer-grid */
+}
+
+.footer-copyright p {
+    margin: 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6); /* Color más tenue */
+}
+
+
+
+/* ==================== Media Queries para Responsividad ==================== */
+
+/* Estilos Generales Responsivos */
+@media (max-width: 992px) { /* Tablets y pantallas medianas */
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 2rem; }
+
+    .features-grid {
+        /* Cambia a 2 columnas en tablet */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) { /* Móviles */
+    .container {
+        width: 90%; /* Un poco más de margen en móviles */
+    }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+
+    .section-padding {
+        padding: 40px 0;
+    }
+
+     /* Header Responsivo */
+    .main-nav {
+        display: none; /* Ocultar menú principal */
+        /* Aquí añadirías los estilos para el menú desplegable si lo implementas con JS */
+    }
+    .header-actions {
+        /* Decide qué hacer con los botones: ocultar uno, ambos, o dejarlos */
+         gap: 5px; /* Menos espacio si se mantienen */
+    }
+     .header-actions .btn {
+        padding: 8px 15px; /* Botones más pequeños */
+        font-size: 0.9rem;
+     }
+    .mobile-menu-toggle {
+        display: block; /* Mostrar botón hamburguesa */
+    }
+
+    /* Hero Responsivo */
+     .hero {
+        padding: 40px 0;
+     }
+    .hero .container {
+        flex-direction: column; /* Apilar */
+        border-radius: 0;
+    }
+    .hero-content {
+        padding: 30px 20px;
+        text-align: center;
+    }
+     .hero-image img {
+        height: auto;
+        max-height: 300px; /* Limitar altura en móvil */
+        object-fit: cover; /* O contain si prefieres verla completa */
+     }
+    .hero h1 {
+        font-size: 2rem;
+     }
+    .hero p {
+        font-size: 1rem;
+        max-width: none; /* Permitir ancho completo */
+    }
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+     }
+     .hero-buttons .btn {
+        width: 90%;
+        max-width: 300px;
+        margin-bottom: 10px;
+        margin-right: 0;
+     }
+
+    /* Features Responsivo */
+    .features-grid {
+        /* Cambia a 1 columna en móvil */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .feature-item {
+        padding: 25px;
+    }
+}
