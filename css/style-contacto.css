@@ -1,0 +1,118 @@
+/* ==================== Estilos Página Contacto ==================== */
+
+/* --- Banner Superior --- */
+.page-banner {
+    padding: 160px 0; /* Padding vertical */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: var(--text-light); /* Texto blanco por defecto */
+}
+
+.page-banner::before { /* Overlay oscuro (opcional, ajusta o quita) */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Negro semitransparente */
+    z-index: 1;
+}
+
+/* Específico para el banner de contacto */
+.contact-banner {
+    /* === ¡RUTA A TU IMAGEN DE FONDO PARA CONTACTO! === */
+    background-image: url('../images/contacto.png');
+}
+
+.page-banner .container {
+    position: relative; /* Para que el contenido esté sobre el overlay */
+    z-index: 2;
+}
+
+.banner-title {
+    color: var(--text-light);
+    font-size: 2.8rem; /* Tamaño título del banner */
+    margin: 0; /* Sin margen extra */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Sombra para legibilidad */
+}
+
+/* --- Sección del Formulario --- */
+.contact-form-section {
+    /* section-padding ya da espacio arriba/abajo */
+    background-color: #fff; /* Fondo blanco para el área del form */
+}
+
+.contact-form {
+    max-width: 800px; /* Limita ancho del formulario */
+    margin: 0 auto;  /* Centra el formulario */
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 25px; /* Espacio entre columnas */
+    margin-bottom: 20px; /* Espacio entre filas del grid */
+}
+
+/* Hereda estilos de .form-group de login/register */
+/* Si necesitas ajustes específicos: */
+.contact-form .form-group {
+     margin-bottom: 0; /* Quitamos margen si el grid ya lo maneja */
+}
+.contact-form .form-group:last-of-type { /* O ajuste específico para el textarea */
+    margin-bottom: 25px; /* Espacio antes del botón */
+}
+
+/* Inputs y Textarea (heredan estilos base, quitamos padding de icono) */
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px; /* Padding normal SIN espacio para icono */
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit; /* Asegura misma fuente */
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+     outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(124, 170, 152, 0.25);
+}
+
+.contact-form textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 120px; /* Altura mínima */
+}
+
+/* Botón Enviar */
+.btn-submit {
+    padding: 12px 40px; /* Padding del botón */
+    font-size: 1.1rem;
+}
+
+
+/* ==================== Media Queries (Contacto) ==================== */
+@media (max-width: 768px) { /* Móviles */
+    .banner-title {
+        font-size: 2.2rem; /* Título de banner más pequeño */
+    }
+    .form-grid {
+        grid-template-columns: 1fr; /* 1 columna */
+        gap: 0; /* Sin gap vertical */
+    }
+    .contact-form .form-group {
+        margin-bottom: 20px; /* Espacio entre campos en móvil */
+    }
+    .contact-form .form-group:last-of-type {
+         margin-bottom: 30px; /* Espacio antes del botón */
+    }
+
+}
